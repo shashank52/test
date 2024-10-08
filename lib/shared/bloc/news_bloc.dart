@@ -13,13 +13,16 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         emit(NewsLoading());
       }
       try {
-         final result = await newsRepo.getNews();
-      // debugPrint(result);
-      emit(NewsLoaded(newsModel: result));
+        final result = await newsRepo.getNews();
+        // debugPrint(result);
+        if (result.articles.isNotEmpty) {
+          emit(NewsLoaded(newsModel: result));
+        } else {
+          emit(const NewsError(message: "No news found"));
+        }
       } catch (e) {
         emit(NewsError(message: e.toString()));
       }
-     
     });
   }
 }
