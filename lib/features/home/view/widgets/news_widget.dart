@@ -40,34 +40,47 @@ class NewsWidget extends StatelessWidget {
                       ),
                     );
                   },
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(),
+                  placeholder: (context, url) => const SizedBox(
+                    height: 180,
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   ),
                   imageUrl: article.urlToImage,
                   errorWidget: (context, url, error) => const Center(
-                    child: Icon(Icons.error),
+                    child: SizedBox(height: 180, child: Icon(Icons.error)),
                   ),
                 ),
                 const Gap(8),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         article.title,
                         style: theme.titleMedium,
                       ),
-                      const Gap(8),
+                      const Gap(
+                        8,
+                      ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            article.source.name,
-                            style: theme.titleSmall,
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              article.source.name,
+                              style: theme.titleSmall,
+                            ),
                           ),
                           const Gap(8),
-                          const Text("|"),
-                          const Gap(8),
-                          Text(article.publishedAt.readAbleFormat())
+                          Expanded(
+                              flex: 1,
+                              child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                      article.publishedAt.readAbleFormat())))
                         ],
                       ),
                       const Gap(8),

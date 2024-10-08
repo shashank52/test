@@ -45,12 +45,18 @@ class NewsDetails extends StatelessWidget {
                         ),
                       );
                     },
-                    placeholder: (context, url) => const Center(
-                      child: CircularProgressIndicator(),
+                    placeholder: (context, url) => SizedBox(
+                      height: MediaQuery.of(context).size.height / 3,
+                      child: const Center(
+                        child: CircularProgressIndicator(),
+                      ),
                     ),
                     imageUrl: article.urlToImage,
-                    errorWidget: (context, url, error) => const Center(
-                      child: Icon(Icons.error),
+                    errorWidget: (context, url, error) => SizedBox(
+                      height: MediaQuery.of(context).size.height / 3,
+                      child: const Center(
+                        child: Icon(Icons.error),
+                      ),
                     ),
                   ),
                   const Gap(12),
@@ -61,16 +67,22 @@ class NewsDetails extends StatelessWidget {
                   const Gap(8),
                   Row(
                     children: [
-                      Text(
-                        article.source.name,
-                        style: theme.titleMedium,
+                      Expanded(
+                        flex:2,
+                        child: Text(
+                          article.source.name,
+                          style: theme.titleMedium,
+                        ),
                       ),
                       const Gap(8),
-                      const Text("|"),
-                      const Gap(8),
-                      Text(
-                        article.publishedAt.readAbleFormat(),
-                        style: theme.titleSmall,
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            article.publishedAt.readAbleFormat(),
+                            style: theme.titleSmall,
+                          ),
+                        ),
                       )
                     ],
                   ),
