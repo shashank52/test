@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/features/settings/data/model/mock_data.dart';
-import 'package:myapp/features/settings/view/widgets/app_floating_button.dart';
-import 'package:myapp/shared/bloc/theme_bloc/theme_bloc.dart';
+import 'package:news_app/features/settings/data/model/mock_data.dart';
+import 'package:news_app/features/settings/view/widgets/app_floating_button.dart';
+import 'package:news_app/shared/bloc/theme_bloc/theme_bloc.dart';
+
 import '../data/model/app_color_model.dart';
 
 /// The `SettingsView` class is a Dart class that represents a settings view with a grid of color

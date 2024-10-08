@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/shared/data/models/news_model.dart';
-import 'package:myapp/shared/repos.dart';
+import 'package:news_app/shared/data/models/news_model.dart';
+import 'package:news_app/shared/repos.dart';
 
 part 'news_events.dart';
 part 'news_state.dart';

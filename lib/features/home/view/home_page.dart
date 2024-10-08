@@ -1,10 +1,10 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/features/home/view/widgets/news_widget.dart';
-import 'package:myapp/features/settings/view/widgets/app_floating_button.dart';
-import 'package:myapp/shared/bloc/news_bloc/news_bloc.dart';
-import 'package:myapp/utils/routes.dart';
+import 'package:news_app/features/home/view/widgets/news_widget.dart';
+import 'package:news_app/features/settings/view/widgets/app_floating_button.dart';
+import 'package:news_app/shared/bloc/news_bloc/news_bloc.dart';
+import 'package:news_app/utils/routes.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

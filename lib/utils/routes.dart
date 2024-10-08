@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/features/home/view/home_page.dart';
-import 'package:myapp/features/news_details/view/news_details.dart';
-import 'package:myapp/features/settings/view/settings_view.dart';
+import 'package:news_app/features/home/view/home_page.dart';
+import 'package:news_app/features/news_details/view/news_details.dart';
+import 'package:news_app/features/settings/view/settings_view.dart';
 
 class Routes {
   static const home = '/home';
@@ -18,9 +18,11 @@ class Routes {
       case newsDetails:
         return MaterialPageRoute(
           settings: settings,
-          builder: ((context) =>  NewsDetails(args: settings.arguments as NewsDetailsArgs,)),
+          builder: ((context) => NewsDetails(
+                args: settings.arguments as NewsDetailsArgs,
+              )),
         );
-      
+
       case setting:
         return MaterialPageRoute(
           settings: settings,

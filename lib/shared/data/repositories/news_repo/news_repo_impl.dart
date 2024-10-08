@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:myapp/shared/data/models/news_model.dart';
-import 'package:myapp/shared/data/repositories/news_repo/news_repo.dart';
-import 'package:myapp/utils/app_endpoints.dart';
+import 'package:news_app/shared/data/models/news_model.dart';
+import 'package:news_app/shared/data/repositories/news_repo/news_repo.dart';
+import 'package:news_app/utils/app_endpoints.dart';
 
 class NewsRepoImpl extends NewsRepo {
   @override

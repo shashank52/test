@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/shared/bloc/theme_bloc/theme_bloc.dart';
-import 'package:myapp/shared/bloc_provider_wrapper.dart';
-import 'package:myapp/shared/init/init_app.dart';
-import 'package:myapp/utils/routes.dart';
+import 'package:news_app/shared/bloc/theme_bloc/theme_bloc.dart';
+import 'package:news_app/shared/bloc_provider_wrapper.dart';
+import 'package:news_app/shared/init/init_app.dart';
+import 'package:news_app/utils/routes.dart';
 
 void main() async {
   await initApp();

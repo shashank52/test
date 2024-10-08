@@ -1,5 +1,5 @@
-import 'package:myapp/shared/data/models/news_model.dart';
+import 'package:news_app/shared/data/models/news_model.dart';
 
-abstract class NewsRepo{
+abstract class NewsRepo {
   Future<NewsModel> getNews();
 }

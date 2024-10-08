@@ -3,11 +3,8 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/features/settings/data/model/app_color_model.dart';
-import 'package:myapp/features/settings/data/model/mock_data.dart';
-
-
-
+import 'package:news_app/features/settings/data/model/app_color_model.dart';
+import 'package:news_app/features/settings/data/model/mock_data.dart';
 
 part 'theme_event.dart';
 part 'theme_state.dart';

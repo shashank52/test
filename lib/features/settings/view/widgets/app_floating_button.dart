@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myapp/features/settings/data/model/mock_data.dart';
-import 'package:myapp/shared/bloc/theme_bloc/theme_bloc.dart';
-
+import 'package:news_app/features/settings/data/model/mock_data.dart';
+import 'package:news_app/shared/bloc/theme_bloc/theme_bloc.dart';
 
 /// The `AppFloatingButton` class is a Flutter widget that displays a floating action button and toggles
 /// the theme between light and dark mode when pressed.

@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:myapp/features/news_details/view/news_details.dart';
-import 'package:myapp/shared/data/models/news_model.dart';
-import 'package:myapp/utils/extensions/date_time.dart';
-import 'package:myapp/utils/routes.dart';
+import 'package:news_app/features/news_details/view/news_details.dart';
+import 'package:news_app/shared/data/models/news_model.dart';
+import 'package:news_app/utils/extensions/date_time.dart';
+import 'package:news_app/utils/routes.dart';
 
 class NewsWidget extends StatelessWidget {
   const NewsWidget({super.key, required this.article, required this.index});
