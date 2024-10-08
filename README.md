@@ -1,16 +1,21 @@
-# myapp
+# NewsApp
 
-A new Flutter project.
+An App to display Top Headline new using newsapi.org . 
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+This project is been made using Google Project IDX.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Use the latest stable flutter version as of writing this current version is 3.24.3
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Projects contains 3 screens
+
+- HomeScreen: ListView of news articles
+- NewsDetail: A detailed news page with a link to full story.
+- SettingPage: To switch to different themes
+
+Pending Task:
+- Pagination
+- Local DB support
