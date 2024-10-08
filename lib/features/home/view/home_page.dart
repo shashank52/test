@@ -1,3 +1,4 @@
+import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myapp/features/home/view/widgets/news_widget.dart';
@@ -32,12 +33,16 @@ class HomePage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             } else if (state is NewsLoaded) {
-              return ListView.builder(
-                  itemCount: state.newsModel.articles.length,
-                  itemBuilder: (context, index) => NewsWidget(
-                        article: state.newsModel.articles[index],
-                        index: index,
-                      ));
+              return EasyRefresh(
+                onRefresh: () => context.read<NewsBloc>()
+                  ..add(const NewsFetch(isAutoRefresh: true)),
+                child: ListView.builder(
+                    itemCount: state.newsModel.articles.length,
+                    itemBuilder: (context, index) => NewsWidget(
+                          article: state.newsModel.articles[index],
+                          index: index,
+                        )),
+              );
             } else if (state is NewsError) {
               return Center(
                 child: Text(state.message),
