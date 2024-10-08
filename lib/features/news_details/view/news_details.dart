@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
-import 'package:myapp/shared/bloc/news_bloc.dart';
+import 'package:myapp/shared/bloc/news_bloc/news_bloc.dart';
 import 'package:myapp/utils/extensions/date_time.dart';
 import 'package:url_launcher/url_launcher.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myapp/features/home/view/widgets/news_widget.dart';
 import 'package:myapp/features/settings/view/widgets/app_floating_button.dart';
-import 'package:myapp/shared/bloc/news_bloc.dart';
+import 'package:myapp/shared/bloc/news_bloc/news_bloc.dart';
 import 'package:myapp/utils/routes.dart';
 
 class HomePage extends StatelessWidget {

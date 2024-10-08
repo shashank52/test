@@ -14,7 +14,6 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       }
       try {
         final result = await newsRepo.getNews();
-        // debugPrint(result);
         if (result.articles.isNotEmpty) {
           emit(NewsLoaded(newsModel: result));
         } else {
