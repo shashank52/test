@@ -15,7 +15,8 @@ Projects contains 3 screens
 - HomeScreen: ListView of news articles
 - NewsDetail: A detailed news page with a link to full story.
 - SettingPage: To switch to different themes
+- Local DB Support Added
 
 Pending Task:
 - Pagination
-- Local DB support
+
