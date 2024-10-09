@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/shared/bloc/theme_bloc/theme_bloc.dart';
 import 'package:news_app/shared/bloc_provider_wrapper.dart';
 import 'package:news_app/shared/init/init_app.dart';
-import 'package:news_app/utils/routes.dart';
+import 'package:news_app/shared/routes.dart';
 
 void main() async {
   await initApp();
