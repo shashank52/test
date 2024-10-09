@@ -24,32 +24,32 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: BlocProvider<NewsBloc>.value(
-        value: context.read<NewsBloc>()..add(const NewsFetch()),
-        child: BlocBuilder<NewsBloc, NewsState>(
-          builder: (context, state) {
-            if (state is NewsLoading || state is NewsInitial) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is NewsLoaded) {
-              return EasyRefresh(
-                onRefresh: () => context.read<NewsBloc>()
-                  ..add(const NewsFetch(isAutoRefresh: true)),
-                child: ListView.builder(
+      body: EasyRefresh(
+        onRefresh: () =>
+            context.read<NewsBloc>()..add(const NewsFetch(isAutoRefresh: true)),
+        child: BlocProvider<NewsBloc>.value(
+          value: context.read<NewsBloc>()..add(const NewsFetch()),
+          child: BlocBuilder<NewsBloc, NewsState>(
+            builder: (context, state) {
+              if (state is NewsLoading || state is NewsInitial) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is NewsLoaded) {
+                return ListView.builder(
                     itemCount: state.newsModel.articles.length,
                     itemBuilder: (context, index) => NewsWidget(
                           article: state.newsModel.articles[index],
                           index: index,
-                        )),
-              );
-            } else if (state is NewsError) {
-              return Center(
-                child: Text(state.message),
-              );
-            }
-            return const SizedBox.shrink();
-          },
+                        ));
+              } else if (state is NewsError) {
+                return Center(
+                  child: Text(state.message),
+                );
+              }
+              return const SizedBox.shrink();
+            },
+          ),
         ),
       ),
       floatingActionButton: const AppFloatingButton(),

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:news_app/shared/app_endpoints.dart';
 import 'package:news_app/shared/data/models/news_model.dart';
 import 'package:news_app/shared/data/repositories/news_repo/remote/news_repo_remote_ds.dart';
-import 'package:news_app/shared/app_endpoints.dart';
+import 'package:news_app/utils/exceptions/exceptions.dart';
 
 class NewsRepoRemoteDsImpl extends NewsRepoRemoteDs {
- 
-    @override
+  @override
   Future<NewsModel> getNews() async {
     try {
       final result = await Dio().get(AppEndpoints.newsApi,
@@ -13,10 +13,12 @@ class NewsRepoRemoteDsImpl extends NewsRepoRemoteDs {
       if (result.statusCode == 200) {
         return NewsModel.fromMap(result.data);
       } else {
-        return NewsModel(articles: [], status: "", totalResults: 0);
+        throw EmptyException('No Data Found');
       }
+    } on EmptyException {
+      rethrow;
     } catch (e) {
-      throw Exception("Something went wrong");
+      throw RepoException('Something Went wrong');
     }
   }
 }
