@@ -13,8 +13,17 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         emit(NewsLoading());
       }
       try {
+        // fetch data from db
+        final localResult = await newsRepo.getNews(isLocal: true);
+
+        if (localResult != null) {
+          if (localResult.articles.isNotEmpty) {
+            emit(NewsLoaded(newsModel: localResult));
+          }
+        }
+        // hit api to get latest data
         final result = await newsRepo.getNews();
-        if (result.articles.isNotEmpty) {
+        if (result!=null && result.articles.isNotEmpty) {
           emit(NewsLoaded(newsModel: result));
         } else {
           emit(const NewsError(message: "No news found"));
