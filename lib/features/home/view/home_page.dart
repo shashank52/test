@@ -1,6 +1,7 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:news_app/features/home/view/widgets/news_widget.dart';
 import 'package:news_app/features/settings/view/widgets/app_floating_button.dart';
 import 'package:news_app/shared/bloc/news_bloc/news_bloc.dart';
@@ -44,7 +45,14 @@ class HomePage extends StatelessWidget {
                         ));
               } else if (state is NewsError) {
                 return Center(
-                  child: Text(state.message),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.gpp_bad, size: 48),
+                      const Gap(8),
+                      Text(state.message),
+                    ],
+                  ),
                 );
               }
               return const SizedBox.shrink();
