@@ -25,4 +25,14 @@ class NewsRepoLocalDsImpl extends NewsRepoLocalDs {
       debugPrint("Something went wrong while stroing data");
     }
   }
+  
+  @override
+  Future<void> clearAllData() async{
+    try{
+       final newsBox = Hive.box<NewsSavedModel>(HiveStorageKeys.newsBox);
+       await newsBox.clear();
+    } catch (e){
+       debugPrint("Something went wrong while clearing data");
+    }
+  }
 }

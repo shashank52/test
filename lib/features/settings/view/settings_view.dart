@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/settings/data/model/mock_data.dart';
 import 'package:news_app/features/settings/view/widgets/app_floating_button.dart';
 import 'package:news_app/shared/bloc/theme_bloc/theme_bloc.dart';
+import 'package:news_app/shared/widgets/logout.dart';
 
 import '../data/model/app_color_model.dart';
 
@@ -16,9 +17,7 @@ class SettingsView extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-      ),
+      appBar: AppBar(title: const Text('Settings'), actions: const [Logout()]),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(children: [
