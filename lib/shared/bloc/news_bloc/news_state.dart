@@ -13,11 +13,18 @@ class NewsInitial extends NewsState {}
 
 class NewsLoaded extends NewsState {
   final NewsModel newsModel;
+  final String message;
 
-  const NewsLoaded({required this.newsModel});
+  const NewsLoaded({required this.newsModel, this.message = ''});
+
+  NewsLoaded copyWith({NewsModel? newsModel, String? message}) {
+    return NewsLoaded(
+        newsModel: newsModel ?? this.newsModel,
+        message: message ?? this.message);
+  }
 
   @override
-  List<Object> get props => [newsModel];
+  List<Object> get props => [newsModel, message];
 }
 
 class NewsLoading extends NewsState {}

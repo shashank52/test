@@ -27,7 +27,14 @@ class HomePage extends StatelessWidget {
       ),
       body: BlocProvider<NewsBloc>.value(
         value: context.read<NewsBloc>()..add(const NewsFetch()),
-        child: BlocBuilder<NewsBloc, NewsState>(
+        child: BlocConsumer<NewsBloc, NewsState>(
+          listener: (context, state) {
+            if (state is NewsLoaded && state.message.isNotEmpty) {
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text(state.message),
+              ));
+            }
+          },
           builder: (context, state) {
             if (state is NewsLoading || state is NewsInitial) {
               return const Center(

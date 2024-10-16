@@ -13,9 +13,10 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       if (!event.isAutoRefresh) {
         emit(NewsLoading());
       }
+      late final NewsModel? localResult;
       try {
         // fetch data from db
-        final localResult = await newsRepo.getNews(isLocal: true);
+        localResult = await newsRepo.getNews(isLocal: true);
 
         if (localResult != null) {
           if (localResult.articles.isNotEmpty) {
@@ -25,14 +26,26 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         // hit api to get latest data
         final result = await newsRepo.getNews();
         if (result != null && result.articles.isNotEmpty) {
-          emit(NewsLoaded(newsModel: result));
-        }
+          emit(NewsLoaded(newsModel: result, message: localResult!=null ? 'Data Updated': ''));
+        } 
       } on EmptyException catch (e) {
-        emit(NewsError(message: e.message));
+        if (localResult != null && localResult.articles.isNotEmpty) {
+          emit((state as NewsLoaded).copyWith(message: e.message));
+        } else {
+          emit(NewsError(message: e.message));
+        }
       } on RepoException catch (e) {
-        emit(NewsError(message: e.message));
+        if (localResult != null && localResult.articles.isNotEmpty) {
+          emit((state as NewsLoaded).copyWith(message: e.message));
+        } else {
+          emit(NewsError(message: e.message));
+        }
       } catch (e) {
-        emit(NewsError(message: e.toString()));
+        if (localResult != null && localResult.articles.isNotEmpty) {
+          emit((state as NewsLoaded).copyWith(message: e.toString()));
+        } else {
+          emit(NewsError(message: e.toString()));
+        }
       }
     });
   }
