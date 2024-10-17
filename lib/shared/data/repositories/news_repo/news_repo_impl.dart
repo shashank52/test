@@ -16,6 +16,7 @@ class NewsRepoImpl extends NewsRepo {
     }
     try {
       final result = await newsRepoRemoteDs.getNews();
+      if (result.articles.isEmpty) throw EmptyException('No Data Found');
       newsRepoLocalDs.store(NewsSavedModel(result.toJson()));
       return result;
     } on EmptyException {
